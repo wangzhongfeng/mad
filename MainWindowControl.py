@@ -55,7 +55,7 @@ class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
         try:
             self.installSetting.show()
         except Exception as e:
-         QMessageBox.critical(self,"异常",self.tr("打开火烈鸟安装设置页面异常,异常信息为:{}".format(str(e))))
+         QMessageBox.critical(self,"异常",self.t.idea\workspace.xmlr("打开火烈鸟安装设置页面异常,异常信息为:{}".format(str(e))))
 
     def jump_to_dataTran_setting(self):
         try:
