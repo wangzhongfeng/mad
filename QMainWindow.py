@@ -8,6 +8,7 @@ class QMainWindow(QtWidgets.QMainWindow):
         :param event: close()触发的事件
         :return: None
         """
+
         reply = QtWidgets.QMessageBox.question(self,
                                                '本程序',
                                                "是否要退出程序？",

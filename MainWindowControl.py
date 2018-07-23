@@ -70,3 +70,4 @@ class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
             self.getcloudpkcode.show()
         except Exception as e:
             QMessageBox.critical(self,"异常",self.tr("打开获取云票务Pk信息页面异常,异常信息为:{}".format(str(e))))
+            
