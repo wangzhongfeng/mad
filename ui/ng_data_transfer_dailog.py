@@ -7,9 +7,8 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-# from PyQt5 import QtWebKitWidgets
 from PyQt5.QtCore import *
-from PyQt5.QtWebEngineWidgets import QWebEnginePage, QWebEngineView
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 class Ui_ng_data_transfer_dailog(object):
     def setupUi(self, ng_data_transfer_dailog):
         ng_data_transfer_dailog.setObjectName("ng_data_transfer_dailog")
@@ -17,15 +16,16 @@ class Ui_ng_data_transfer_dailog(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("res/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         ng_data_transfer_dailog.setWindowIcon(icon)
+        self.fromObj = ng_data_transfer_dailog
         # self.webView = QtWebKitWidgets.QWebView(ng_data_transfer_dailog)
         # self.webView.setGeometry(QtCore.QRect(0, 100, 1071, 711))
         # self.webView.setUrl(QtCore.QUrl("http://localhost:8080/html/index.html"))
         # self.webView.setObjectName("webView")
-        self.browser = QWebEngineView(ng_data_transfer_dailog)
-        url = 'https://www.baidu.com'
-        self.browser.load(QUrl(url))
-        self.browser.setGeometry(QtCore.QRect(0, 100, 1071, 711))
-        self.browser.setObjectName("browser")
+        # self.browser = QWebEngineView(ng_data_transfer_dailog)
+        # url = 'https://www.baidu.com'
+        # self.browser.load(QUrl(url))
+        # self.browser.setGeometry(QtCore.QRect(0, 100, 1071, 711))
+        # self.browser.setObjectName("browser")
         self.tempdb_name_label = QtWidgets.QLabel(ng_data_transfer_dailog)
         self.tempdb_name_label.setGeometry(QtCore.QRect(350, 70, 41, 16))
         self.tempdb_name_label.setStyleSheet("font: 75 12pt \"Agency FB\";\n"
