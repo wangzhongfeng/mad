@@ -22,6 +22,11 @@ import CheckNgSysLoginControl
 import CheckCloudSysLoginControl
 import CheckPortControl
 import CheckDiskControl
+import CheckNgAllControl
+import CheckCloudAllControl
+import AliPayOpenControl
+import WetcatpayOpenControl
+import GlobalSetControl
 class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindowControl, self).__init__()
@@ -38,6 +43,11 @@ class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
         self.checkcloudlogin = CheckCloudSysLoginControl.CheckCloudSysLoginControl()
         self.checkport = CheckPortControl.CheckPortControl()
         self.checkdisk = CheckDiskControl.CheckDiskControl()
+        self.checkngall =CheckNgAllControl.CheckNgAllControl()
+        self.checkcloudall = CheckCloudAllControl.CheckCloudAllControl()
+        self.alipayopen = AliPayOpenControl.AliPayOpenControl()
+        self.weichatopen = WetcatpayOpenControl.WetcatpayOpenControl()
+        self.globalset=GlobalSetControl.GlobalSetControl()
         #添加事件
         self.ng_install_Button.clicked.connect(self.jump_to_install_setting)
         self.data_transfer_Button.clicked.connect(self.jump_to_dataTran_setting)
@@ -51,6 +61,11 @@ class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
         self.cloud_check_login_action.triggered.connect(self.jump_to_cloudlogin)
         self.check_port_action.triggered.connect(self.jump_to_checkport)
         self.check_disk_action.triggered.connect(self.jump_to_checkdisk)
+        self.ng_check_all_action.triggered.connect(self.jump_to_checkngall)
+        self.cloud_check_all_action.triggered.connect(self.jump_to_checkcloudall)
+        self.open_aipay_action.triggered.connect(self.jump_to_alipay)
+        self.open_weichat_action.triggered.connect(self.jump_to_weicatpay)
+        self.global_set_action.triggered.connect(self.jump_to_globalset)
     def jump_to_install_setting(self):
         try:
             self.installSetting.show()
@@ -118,3 +133,28 @@ class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
             self.checkdisk.show()
         except Exception as e:
             QMessageBox.critical(self,"异常",self.tr("打开测试硬件页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_checkngall(self):
+        try:
+            self.checkngall.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开火烈鸟所有测试页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_checkcloudall(self):
+        try:
+            self.checkcloudall.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开云票务所有测试页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_alipay(self):
+        try:
+            self.alipayopen.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开支付宝开通页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_weicatpay(self):
+        try:
+            self.weichatopen.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开微信开通页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_globalset(self):
+        try:
+            self.globalset.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开全局设置页面异常,异常信息为:{}".format(str(e))))
