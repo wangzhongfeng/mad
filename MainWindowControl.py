@@ -16,6 +16,7 @@ import CloudDataTransferSetControl
 import GetNgPkcodeControl
 import GetCloudPkcodeControl
 import QMainWindow
+import CheckCloudUkControl
 import CheckNgUkControl
 import CheckNgSysLoginControl
 import CheckCloudSysLoginControl
