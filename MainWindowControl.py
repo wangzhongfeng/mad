@@ -16,6 +16,11 @@ import CloudDataTransferSetControl
 import GetNgPkcodeControl
 import GetCloudPkcodeControl
 import QMainWindow
+import CheckNgUkControl
+import CheckNgSysLoginControl
+import CheckCloudSysLoginControl
+import CheckPortControl
+import CheckDiskControl
 class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindowControl, self).__init__()
@@ -26,7 +31,12 @@ class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
         self.clouddataTranSet = CloudDataTransferSetControl.CloudDataTransferSetControl()
         self.getngpkcode = GetNgPkcodeControl.GetPkcodeControl()
         self.getcloudpkcode = GetCloudPkcodeControl.GetCloudPkcodeControl()
-
+        self.checknguk=CheckNgUkControl.CheckNgUkControl()
+        self.checkclouduk = CheckCloudUkControl.CheckCloudUkControl()
+        self.checknglogin = CheckNgSysLoginControl.CheckNgSysLoginControl()
+        self.checkcloudlogin = CheckCloudSysLoginControl.CheckCloudSysLoginControl()
+        self.checkport = CheckPortControl.CheckPortControl()
+        self.checkdisk = CheckDiskControl.CheckDiskControl()
         #添加事件
         self.ng_install_Button.clicked.connect(self.jump_to_install_setting)
         self.data_transfer_Button.clicked.connect(self.jump_to_dataTran_setting)
@@ -34,7 +44,12 @@ class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
         self.ng_cloud_cut_Button.clicked.connect(self.jump_to_cloudDataTran_set)
         self.ng_getpk_action.triggered.connect(self.jump_to_ngPkCode)
         self.cloud_getpk_action.triggered.connect(self.jump_to_cloudPkCode)
-
+        self.ng_check_uk_action.triggered.connect(self.jump_to_nguk)
+        self.cloud_check_uk_action.triggered.connect(self.jump_to_clouduk)
+        self.ng_check_login_action.triggered.connect(self.jump_to_nglogin)
+        self.cloud_check_login_action.triggered.connect(self.jump_to_cloudlogin)
+        self.check_port_action.triggered.connect(self.jump_to_checkport)
+        self.check_disk_action.triggered.connect(self.jump_to_checkdisk)
     def jump_to_install_setting(self):
         try:
             self.installSetting.show()
@@ -70,4 +85,35 @@ class MainWindowControl(QMainWindow.QMainWindow, Ui_MainWindow):
             self.getcloudpkcode.show()
         except Exception as e:
             QMessageBox.critical(self,"异常",self.tr("打开获取云票务Pk信息页面异常,异常信息为:{}".format(str(e))))
-            
+
+    def jump_to_nguk(self):
+        try:
+            self.checknguk.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开测试火烈鸟Uk连接页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_clouduk(self):
+        try:
+            self.checkclouduk.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开测试云票务Uk连接页面异常,异常信息为:{}".format(str(e))))
+
+    def jump_to_nglogin(self):
+        try:
+            self.checknglogin.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开测试火烈鸟登陆页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_cloudlogin(self):
+        try:
+            self.checkcloudlogin.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开测试云票务登陆页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_checkport(self):
+        try:
+            self.checkport.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开测试端口页面异常,异常信息为:{}".format(str(e))))
+    def jump_to_checkdisk(self):
+        try:
+            self.checkdisk.show()
+        except Exception as e:
+            QMessageBox.critical(self,"异常",self.tr("打开测试硬件页面异常,异常信息为:{}".format(str(e))))
