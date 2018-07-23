@@ -8,3 +8,4 @@ class CloudInstallControl(QtWidgets.QDialog, Ui_cloud_new_dailog):
     def __init__(self):
         super(CloudInstallControl, self).__init__()
         self.setupUi(self)
+        
